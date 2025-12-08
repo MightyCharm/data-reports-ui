@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,EAGE,qBAAsB,CAFtB,QAAS,CACT,SAEF,CAEA,KACI,qBACJ","sources":["/home/mighty/repos/data-reports-ui/src/styles.css"],"sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n    background-color: grey;\n}"],"names":[],"sourceRoot":""}
