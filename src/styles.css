@@ -17,7 +17,7 @@ body {
     "main"
     "footer";
   grid-template-rows: auto 1fr auto;
-  border: 2px solid rgb(0, 26, 255);
+  /* border: 2px solid rgb(0, 26, 255); */
 }
 
 .header,
@@ -39,9 +39,22 @@ body {
   /* border: 2px solid red; */
 }
 
+.header-figure {
+  grid-column: 1 / 2;
+
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  /* border: 1px solid red; */
+}
+
 .header-img {
+  height: 20px;
   /* border: 2px solid blue; */
-  grid-column: 1/ 2;
+}
+
+.header-caption {
+  /* align-self: end; */
 }
 
 .navbar {
@@ -97,6 +110,7 @@ body {
 }
 
 .header-tiles {
+  grid-column: 1 / -1;
   /* border: 2px solid blue; */
 }
 
@@ -118,6 +132,10 @@ body {
 }
 
 .tile-img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
   /* border: 1px solid red; */
 }
 

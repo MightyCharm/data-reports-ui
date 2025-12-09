@@ -9,3 +9,13 @@
 - create Hardcoded HTML
 - Basic styling with CSS
 - dynamically generate Tiles with JS
+
+images:
+// chart1.jpg:
+Photo by <a href="https://unsplash.com/@dengxiangs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deng Xiang</a> on <a href="https://unsplash.com/photos/graphical-user-interface--WXQm_NTK0U?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+// chart2.jpg:
+Photo by <a href="https://unsplash.com/@nampoh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Maxim Hopman</a> on <a href="https://unsplash.com/photos/red-and-blue-light-streaks-fiXLQXAhCfk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+// enterprise.png:
+<a href="https://www.flaticon.com/free-icons/work" title="work icons">Work icons created by geotatah - Flaticon</a>
