@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --border-radius: 8px;
 }
 
 html {
@@ -10,6 +16,7 @@ html {
 
 body {
   min-height: 100%;
+  font-family: "Montserrat", sans-serif;
 
   display: grid;
   grid-template-areas:
@@ -66,6 +73,11 @@ body {
 }
 
 .nav-button {
+  background-color: hsl(120, 89%, 26%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
   /* border: 1px solid red; */
 }
 
@@ -105,7 +117,7 @@ body {
 .container-tiles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
   /* border: 2px solid red; */
 }
 
@@ -118,9 +130,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 2px;
+  gap: 0.2rem;
+  border-radius: var(--border-radius);
   padding: 1rem;
-  border: 1px solid grey;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .tile-header {
@@ -136,6 +159,7 @@ body {
   height: auto;
   max-height: 200px;
   object-fit: cover;
+  border-radius: var(--border-radius);
   /* border: 1px solid red; */
 }
 
@@ -152,11 +176,15 @@ body {
   /* border: 2px solid green; */
 }
 
-.footer-links {
+.navbar-footer {
   /* border: 2px solid red; */
 }
 
 .footer-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
   list-style: none;
   /* border: 2px solid rgb(0, 4, 255); */
 }
@@ -167,6 +195,12 @@ body {
 
 .footer-link {
   /* border: 2px solid rgb(0, 4, 255); */
+  color: black;
+  text-decoration: none;
+}
+
+.footer-link:visited {
+  color: hsl(0, 0%, 10%);
 }
 
 .footer-legal {
@@ -186,4 +220,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 400px) {
+  body {
+    border: 1px solid red;
+  }
 }
