@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(navUl);
   console.log(navButton);
 
+  uiController.renderTiles();
+
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
     console.log(role);
