@@ -196,25 +196,6 @@ class UIController {
   }
 
   displayTiles(data) {
-    /* 
-     <article class="tile">
-            <h3 class="tile-header">Title</h3>
-            <p class="tile-description">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet,
-              provident quaerat?
-            </p>
-            <img
-              class="tile-img"
-              src="./images/chart1.jpg"
-              alt="img of barchart"
-            />
-            <p class="tile-added-info">
-              Ipsam deserunt alias, nihil vel excepturi voluptatem expedita
-              necessitatibus reiciendis quod?
-            </p>
-          </article>
-    */
-    console.log(data);
     const article = document.createElement("article");
     const header3 = document.createElement("h3");
     const pDescription = document.createElement("p");

@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const navUl = document.getElementById("nav-ul");
   const navButton = document.getElementById("nav-button");
-  console.log(navUl);
-  console.log(navButton);
+
+  const headerForm = document.getElementById("header-form");
 
   uiController.renderTiles();
 
@@ -40,8 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // check for closing the nav menu in footer
     if (!navUl.contains(event.target) && !navButton.contains(event.target)) {
-      console.log("Hello");
       uiController.closeMenu();
     }
+  });
+
+  headerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("submit");
   });
 });
