@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
           uiController.closeMenu();
           break;
         case "tile":
-          console.log("tile was clicked");
           tile = event.target.closest("[data-role]");
           wrapper = tile.parentElement;
           uiController.renderForm(wrapper);
+
           break;
         default:
           console.log("something went wrong. Click event");
@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // check for closing the nav menu in footer
     if (!navUl.contains(event.target) && !navButton.contains(event.target)) {
       uiController.closeMenu();
+    }
+
+    if (
+      !event.target.closest("[data-role='tile']") &&
+      !event.target.closest(".form-data")
+    ) {
+      uiController.removeForm();
     }
   });
 

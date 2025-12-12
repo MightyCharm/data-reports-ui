@@ -37,7 +37,7 @@ body {
 .header,
 .main,
 .footer {
-  padding: 20px;
+  padding: 30px;
   /* border: 2px solid red; */
 }
 
@@ -157,7 +157,7 @@ body {
 
 .container-tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 2rem;
   /* border: 2px solid red; */
 }
@@ -167,7 +167,6 @@ body {
   /* border: 2px solid blue; */
 }
 
-/* =========================================== */
 .position-container {
   position: relative;
 }
@@ -176,7 +175,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.5rem;
 
   padding: 1rem 2rem;
   text-align: center;
@@ -214,10 +213,18 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+.list-strong {
+}
+
+.list-span {
+  justify-self: end;
+}
+
 .container-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.2rem;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.3rem;
 }
 
 .btn-excel,
@@ -232,9 +239,17 @@ body {
   grid-row: 1 / 2;
 }
 
+.fa-file-excel {
+  color: green;
+}
+
 .btn-pdf {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+}
+
+.fa-file-pdf {
+  color: red;
 }
 
 .btn-back {
@@ -242,8 +257,6 @@ body {
 
 .btn-forward {
 }
-
-/* =============================================== */
 
 .tile:hover {
   transform: translateY(-2px);

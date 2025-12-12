@@ -5,6 +5,7 @@ class UIController {
   constructor() {
     this.navMenu = document.getElementById("nav-ul");
     this.containerTiles = document.getElementById("container-tiles");
+    this.currentForm;
   }
 
   renderTiles() {
@@ -241,8 +242,9 @@ class UIController {
 
   renderForm(wrapper) {
     console.log("renderForm()");
-    const form = this.createForm();
-    wrapper.appendChild(form);
+    this.removeForm();
+    this.currentForm = this.createForm();
+    wrapper.appendChild(this.currentForm);
   }
 
   createForm() {
@@ -341,6 +343,12 @@ class UIController {
     divForm.appendChild(divButtonContainer);
 
     return divForm;
+  }
+
+  removeForm() {
+    if (this.currentForm) {
+      this.currentForm.remove();
+    }
   }
 }
 
