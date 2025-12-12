@@ -6,9 +6,9 @@
 
 ## Goals:
 
-- create Hardcoded HTML
-- Basic styling with CSS
-- dynamically generate Tiles with JS
+- improve layout and overall design
+- refactor code
+- ...
 
 ## images used:
 
