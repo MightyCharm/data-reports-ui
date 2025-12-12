@@ -196,13 +196,20 @@ class UIController {
   }
 
   displayTiles(data) {
+    // - postion container is created as a reference point for the form that will be created if a tile is clicked
+    // - setting position relative on tile directly breaks the flexbox layout, so this wrapper is set to relative
+    // - the form that will be created later if tile is clicked uses this as a reference for postioning and is set
+    //   to absolute
+    const positionContainer = document.createElement("div");
     const article = document.createElement("article");
     const header3 = document.createElement("h3");
     const pDescription = document.createElement("p");
     const img = document.createElement("img");
     const pAddInfo = document.createElement("p");
 
+    positionContainer.classList.add("position-container");
     article.classList.add("tile");
+    article.setAttribute("data-role", "tile");
     header3.classList.add("tile-header");
     header3.textContent = data.title;
     pDescription.classList.add("tile-description");
@@ -219,7 +226,9 @@ class UIController {
     article.appendChild(img);
     article.appendChild(pAddInfo);
 
-    this.containerTiles.appendChild(article);
+    positionContainer.appendChild(article);
+
+    this.containerTiles.appendChild(positionContainer);
   }
 
   updateVisibilityMenu() {
@@ -228,6 +237,110 @@ class UIController {
 
   closeMenu() {
     this.navMenu.classList.add("hidden");
+  }
+
+  renderForm(wrapper) {
+    console.log("renderForm()");
+    const form = this.createForm();
+    wrapper.appendChild(form);
+  }
+
+  createForm() {
+    const divForm = document.createElement("div");
+
+    const ul = document.createElement("ul");
+    const li_1 = document.createElement("li");
+    const li_2 = document.createElement("li");
+    const li_3 = document.createElement("li");
+    const strong_1 = document.createElement("strong");
+    const strong_2 = document.createElement("strong");
+    const strong_3 = document.createElement("strong");
+    const span_1 = document.createElement("span");
+    const span_2 = document.createElement("span");
+    const span_3 = document.createElement("span");
+
+    const divButtonContainer = document.createElement("div");
+    const btnExcel = document.createElement("button");
+    const btnPdf = document.createElement("button");
+    const btnBack = document.createElement("button");
+    const btnForward = document.createElement("button");
+    const iconExcel = document.createElement("i");
+    const iconPdf = document.createElement("i");
+    const iconBack = document.createElement("i");
+    const iconForward = document.createElement("i");
+    const spanBtnExcel = document.createElement("span");
+    const spanBtnPdf = document.createElement("span");
+    const spanBtnBack = document.createElement("span");
+    const spanBtnForward = document.createElement("span");
+
+    divForm.classList.add("form-data");
+
+    ul.classList.add("ul-form");
+    li_1.classList.add("list-item");
+    li_2.classList.add("list-item");
+    li_3.classList.add("list-item");
+    strong_1.classList.add("list-strong");
+    strong_2.classList.add("list-strong");
+    strong_3.classList.add("list-strong");
+    span_1.classList.add("list-span");
+    span_2.classList.add("list-span");
+    span_3.classList.add("list-span");
+
+    divButtonContainer.classList.add("container-buttons");
+    btnExcel.classList.add("btn-excel");
+    btnPdf.classList.add("btn-pdf");
+    btnBack.classList.add("btn-back");
+    btnForward.classList.add("btn-forward");
+    iconExcel.classList.add("fas", "fa-file-excel");
+    iconPdf.classList.add("fas", "fa-file-pdf");
+    iconBack.classList.add("fas", "fa-undo");
+    iconForward.classList.add("fas", "fa-redo");
+    spanBtnExcel.classList.add("span-btn");
+    spanBtnPdf.classList.add("span-btn");
+    spanBtnBack.classList.add("span-btn");
+    spanBtnForward.classList.add("span-btn");
+
+    // text content for ul-list
+    strong_1.textContent = "report_id:";
+    strong_2.textContent = "parameter_name:";
+    strong_3.textContent = "parameter_value:";
+    span_1.textContent = "1x334xx";
+    span_2.textContent = "area_23";
+    span_3.textContent = "population";
+    // text content for buttons
+    spanBtnExcel.textContent = "Download Excel-Document";
+    spanBtnPdf.textContent = "Download PDF-Document";
+    spanBtnBack.textContent = "Load Previous Settings";
+    spanBtnForward.textContent = "Load Choosen Settings";
+
+    btnExcel.appendChild(iconExcel);
+    btnExcel.appendChild(spanBtnExcel);
+    btnPdf.appendChild(iconPdf);
+    btnPdf.appendChild(spanBtnPdf);
+    btnBack.appendChild(iconBack);
+    btnBack.appendChild(spanBtnBack);
+    btnForward.appendChild(iconForward);
+    btnForward.appendChild(spanBtnForward);
+    divButtonContainer.append(btnExcel);
+    divButtonContainer.append(btnPdf);
+    divButtonContainer.append(btnBack);
+    divButtonContainer.append(btnForward);
+
+    li_1.appendChild(strong_1);
+    li_1.appendChild(span_1);
+    li_2.appendChild(strong_2);
+    li_2.appendChild(span_2);
+    li_3.appendChild(strong_3);
+    li_3.appendChild(span_3);
+
+    ul.appendChild(li_1);
+    ul.appendChild(li_2);
+    ul.appendChild(li_3);
+
+    divForm.appendChild(ul);
+    divForm.appendChild(divButtonContainer);
+
+    return divForm;
   }
 }
 

@@ -1,5 +1,6 @@
 import "./styles.css";
 import { UIController } from "./dom";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   const mainContainer = document.getElementById("main-container");
@@ -14,12 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
+    let tile;
+    let wrapper;
     console.log(role);
 
     if (role) {
       switch (role) {
         case "btn-menu":
-          console.log("btn menu was pressed ma boi");
           uiController.updateVisibilityMenu();
           break;
         case "nav-home":
@@ -33,6 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         case "nav-about":
           console.log("nav-about");
           uiController.closeMenu();
+          break;
+        case "tile":
+          console.log("tile was clicked");
+          tile = event.target.closest("[data-role]");
+          wrapper = tile.parentElement;
+          uiController.renderForm(wrapper);
           break;
         default:
           console.log("something went wrong. Click event");
