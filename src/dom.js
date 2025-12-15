@@ -5,6 +5,7 @@ class UIController {
   constructor() {
     this.navMenu = document.getElementById("nav-ul");
     this.containerTiles = document.getElementById("container-tiles");
+    this.wrapper;
     this.currentForm;
   }
 
@@ -236,6 +237,13 @@ class UIController {
   renderForm(wrapper) {
     console.log("renderForm()");
     this.removeForm();
+    // compares current wrapper with last wrapper, if they are equal, same tile
+    // was clicked again, so close the form and don't open a new one
+    if (this.wrapper === wrapper) {
+      this.wrapper = null;
+      return;
+    }
+    this.wrapper = wrapper;
     this.currentForm = this.createForm();
     wrapper.appendChild(this.currentForm);
   }
