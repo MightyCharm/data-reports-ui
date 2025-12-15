@@ -12,12 +12,11 @@ class UIController {
     const seedData = [
       {
         title: "Title 1",
-        description:
-          " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
+        description: " Lorem ipsum, Eveniet, provident quaerat?",
         imgSrc: chart1,
         imgAlt: "fancy chart of some data",
         addedInfo:
-          "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
+          "Ipsam deserunt alias, nihil vel excepturi necessitatibus reiciendis quod?",
       },
       {
         title: "Title 2",
@@ -57,12 +56,10 @@ class UIController {
       },
       {
         title: "Title 6",
-        description:
-          " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
+        description: " Lorem ipsum,provident quaerat?",
         imgSrc: chart2,
         imgAlt: "fancy chart of some data",
-        addedInfo:
-          "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
+        addedInfo: "Ipsam deserunt alias, necessitatibus reiciendis quod?",
       },
       {
         title: "Title 7",
@@ -156,12 +153,10 @@ class UIController {
       },
       {
         title: "Title 17",
-        description:
-          " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
+        description: " Lorem ipsum, dolor sit , provident quaerat?",
         imgSrc: chart1,
         imgAlt: "fancy chart of some data",
-        addedInfo:
-          "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
+        addedInfo: "Ipsam deserunt alias, nihiitatibus reiciendis quod?",
       },
       {
         title: "Title 18",
@@ -183,12 +178,10 @@ class UIController {
       },
       {
         title: "Title 20",
-        description:
-          " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
+        description: " Lorem provident quaerat?",
         imgSrc: chart2,
         imgAlt: "fancy chart of some data",
-        addedInfo:
-          "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
+        addedInfo: "Ipsam necessitatibus reiciendis quod?",
       },
     ];
     seedData.forEach((data) => {
