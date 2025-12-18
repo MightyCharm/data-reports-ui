@@ -251,6 +251,12 @@ class UIController {
     this.wrapper = wrapper;
     this.currentForm = this.createForm();
     wrapper.appendChild(this.currentForm);
+    setTimeout(() => {
+      this.currentForm.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }, 0);
   }
 
   createForm() {
