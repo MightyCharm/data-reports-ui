@@ -236,13 +236,18 @@ class UIController {
 
   renderForm(wrapper) {
     console.log("renderForm()");
-    this.removeForm();
+
     // compares current wrapper with last wrapper, if they are equal, same tile
     // was clicked again, so close the form and don't open a new one
     if (this.wrapper === wrapper) {
-      this.wrapper = null;
+      this.removeForm();
       return;
     }
+
+    if (this.wrapper) {
+      this.removeForm();
+    }
+
     this.wrapper = wrapper;
     this.currentForm = this.createForm();
     wrapper.appendChild(this.currentForm);
@@ -251,6 +256,8 @@ class UIController {
   createForm() {
     const divForm = document.createElement("div");
 
+    const btnClose = document.createElement("button");
+    const iconClose = document.createElement("i");
     const ul = document.createElement("ul");
     const li_1 = document.createElement("li");
     const li_2 = document.createElement("li");
@@ -277,6 +284,10 @@ class UIController {
     const spanBtnForward = document.createElement("span");
 
     divForm.classList.add("form-data");
+
+    btnClose.classList.add("btn-close-form");
+    btnClose.dataset.role = "btn-close-form";
+    iconClose.classList.add("fas", "fa-times");
 
     ul.classList.add("ul-form");
     li_1.classList.add("list-item");
@@ -316,6 +327,19 @@ class UIController {
     spanBtnBack.textContent = "Load Previous Settings";
     spanBtnForward.textContent = "Load Choosen Settings";
 
+    btnClose.appendChild(iconClose);
+
+    li_1.appendChild(strong_1);
+    li_1.appendChild(span_1);
+    li_2.appendChild(strong_2);
+    li_2.appendChild(span_2);
+    li_3.appendChild(strong_3);
+    li_3.appendChild(span_3);
+
+    ul.appendChild(li_1);
+    ul.appendChild(li_2);
+    ul.appendChild(li_3);
+
     btnExcel.appendChild(iconExcel);
     btnExcel.appendChild(spanBtnExcel);
     btnPdf.appendChild(iconPdf);
@@ -329,17 +353,7 @@ class UIController {
     divButtonContainer.append(btnBack);
     divButtonContainer.append(btnForward);
 
-    li_1.appendChild(strong_1);
-    li_1.appendChild(span_1);
-    li_2.appendChild(strong_2);
-    li_2.appendChild(span_2);
-    li_3.appendChild(strong_3);
-    li_3.appendChild(span_3);
-
-    ul.appendChild(li_1);
-    ul.appendChild(li_2);
-    ul.appendChild(li_3);
-
+    divForm.appendChild(btnClose);
     divForm.appendChild(ul);
     divForm.appendChild(divButtonContainer);
 
@@ -349,6 +363,8 @@ class UIController {
   removeForm() {
     if (this.currentForm) {
       this.currentForm.remove();
+      this.currentForm = null;
+      this.wrapper = null;
     }
   }
 }

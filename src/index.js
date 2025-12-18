@@ -17,11 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const role = event.target.closest("[data-role]")?.dataset.role;
     let tile;
     let wrapper;
-    console.log(role);
+    // console.log(role);
 
     if (role) {
       switch (role) {
         case "btn-menu":
+          console.log("btn-menu");
           uiController.updateVisibilityMenu();
           break;
         case "nav-home":
@@ -37,25 +38,31 @@ document.addEventListener("DOMContentLoaded", () => {
           uiController.closeMenu();
           break;
         case "tile":
+          console.log("tile");
           tile = event.target.closest("[data-role]");
           wrapper = tile.parentElement;
           uiController.renderForm(wrapper);
-
+          break;
+        case "btn-close-form":
+          console.log("btn-close-form");
+          uiController.removeForm();
           break;
         default:
           console.log("something went wrong. Click event");
+          break;
       }
-    }
-    // check for closing the nav menu in footer
-    if (!navUl.contains(event.target) && !navButton.contains(event.target)) {
-      uiController.closeMenu();
-    }
+    } else {
+      // check for closing the nav menu in header
+      if (!navUl.contains(event.target) && !navButton.contains(event.target)) {
+        uiController.closeMenu();
+      }
 
-    if (
-      !event.target.closest("[data-role='tile']") &&
-      !event.target.closest(".form-data")
-    ) {
-      uiController.removeForm();
+      if (
+        !event.target.closest("[data-role='tile']") &&
+        !event.target.closest(".form-data")
+      ) {
+        uiController.removeForm();
+      }
     }
   });
 

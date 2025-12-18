@@ -203,7 +203,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 
   position: absolute;
   top: 101%;
@@ -213,8 +213,22 @@ body {
   cursor: pointer;
 
   border-radius: var(--border-radius);
-  border: 1px solid #ddd;
-  background-color: white;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.btn-close-form {
+  border: none;
+  margin-left: auto;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.btn-close-form:hover {
+  color: white;
+  background-color: hsl(0, 75%, 48%);
+}
+
+.fa-times {
 }
 
 .ul-form {
