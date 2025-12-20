@@ -250,13 +250,36 @@ class UIController {
 
     this.wrapper = wrapper;
     this.currentForm = this.createForm();
+    // check page height before the form is appended, because form appended may
+    // change height of page because it pushes down the content
+    const pageHeight = document.body.scrollHeight;
     wrapper.appendChild(this.currentForm);
+    this.adjustFormPosition(this.currentForm, pageHeight);
+
     setTimeout(() => {
       this.currentForm.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "nearest",
       });
     }, 0);
+  }
+
+  adjustFormPosition(currentForm, pageHeight) {
+    // form height
+    const formHeight = currentForm.offsetHeight;
+    // cardBottom
+    const cardBottom = this.wrapper.offsetTop + this.wrapper.offsetHeight;
+    // pageHeight
+    if (formHeight + cardBottom > pageHeight) {
+      console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
+      currentForm.classList.add("on-top");
+    }
+    console.log("===========================");
+    console.log(`formHeight: ${formHeight} cardBottom: ${cardBottom}`);
+    console.log(`height form: ${formHeight + cardBottom}`);
+    console.log(`pageHeight: ${pageHeight}`);
+    console.log("===========================");
+    //===========================================
   }
 
   createForm() {

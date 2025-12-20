@@ -216,6 +216,12 @@ body {
   background-color: hsl(0, 0%, 100%);
 }
 
+/* if form-data doesn't have enough space to be placed under tile */
+.on-top {
+  top: 0;
+  transform: translateY(-101%);
+}
+
 .btn-close-form {
   border: none;
   margin-left: auto;
