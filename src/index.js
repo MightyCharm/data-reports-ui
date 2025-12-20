@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navButton = document.getElementById("nav-button");
 
   const headerForm = document.getElementById("header-form");
-
+  let resizeTimer;
   uiController.renderTiles();
 
   mainContainer.addEventListener("click", (event) => {
@@ -69,5 +69,17 @@ document.addEventListener("DOMContentLoaded", () => {
   headerForm.addEventListener("submit", (event) => {
     event.preventDefault();
     console.log("submit");
+  });
+
+  window.addEventListener("resize", () => {
+    console.log("Hello");
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (uiController.currentForm) {
+        const wrapper = uiController.wrapper;
+        uiController.removeForm();
+        uiController.renderForm(wrapper);
+      }
+    }, 100);
   });
 });

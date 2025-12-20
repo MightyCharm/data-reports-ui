@@ -254,7 +254,7 @@ class UIController {
     // change height of page because it pushes down the content
     const pageHeight = document.body.scrollHeight;
     wrapper.appendChild(this.currentForm);
-    this.adjustFormPosition(this.currentForm, pageHeight);
+    this.adjustFormPosition(pageHeight);
 
     setTimeout(() => {
       this.currentForm.scrollIntoView({
@@ -264,15 +264,17 @@ class UIController {
     }, 0);
   }
 
-  adjustFormPosition(currentForm, pageHeight) {
-    // form height
-    const formHeight = currentForm.offsetHeight;
-    // cardBottom
+  adjustFormPosition(pageHeight) {
+    this.wrapper.offsetHeight;
+
+    const formHeight = this.currentForm.offsetHeight;
     const cardBottom = this.wrapper.offsetTop + this.wrapper.offsetHeight;
     // pageHeight
     if (formHeight + cardBottom > pageHeight) {
       console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
-      currentForm.classList.add("on-top");
+      this.currentForm.classList.add("on-top");
+    } else {
+      this.currentForm.classList.remove("on-top");
     }
     console.log("===========================");
     console.log(`formHeight: ${formHeight} cardBottom: ${cardBottom}`);
