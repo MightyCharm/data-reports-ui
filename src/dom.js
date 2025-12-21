@@ -4,7 +4,7 @@ import chart2 from "./images/chart2.jpg";
 class UIController {
   constructor() {
     this.navMenu = document.getElementById("nav-ul");
-    this.containerTiles = document.getElementById("container-tiles");
+    this.containerTiles = document.getElementById("container-cards");
     this.wrapper;
     this.currentForm;
   }
@@ -203,16 +203,16 @@ class UIController {
     const pAddInfo = document.createElement("p");
 
     positionContainer.classList.add("position-container");
-    article.classList.add("tile");
-    article.setAttribute("data-role", "tile");
-    header3.classList.add("tile-header");
+    article.classList.add("card");
+    article.setAttribute("data-role", "card");
+    header3.classList.add("card-header");
     header3.textContent = data.title;
-    pDescription.classList.add("tile-description");
+    pDescription.classList.add("card-description");
     pDescription.textContent = data.description;
-    img.classList.add("tile-img");
+    img.classList.add("card-img");
     img.src = data.imgSrc;
     img.alt = "some fancy data charts";
-    pAddInfo.classList.add("tile-added-info");
+    pAddInfo.classList.add("card-added-info");
     pAddInfo.textContent =
       "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?";
 
@@ -265,6 +265,7 @@ class UIController {
   }
 
   adjustFormPosition(pageHeight) {
+    console.log("adjustFormPosition");
     this.wrapper.offsetHeight;
 
     const formHeight = this.currentForm.offsetHeight;
@@ -276,12 +277,12 @@ class UIController {
     } else {
       this.currentForm.classList.remove("on-top");
     }
-    console.log("===========================");
-    console.log(`formHeight: ${formHeight} cardBottom: ${cardBottom}`);
-    console.log(`height form: ${formHeight + cardBottom}`);
-    console.log(`pageHeight: ${pageHeight}`);
-    console.log("===========================");
-    //===========================================
+    // console.log("===========================");
+    // console.log(`formHeight: ${formHeight} cardBottom: ${cardBottom}`);
+    // console.log(`height form: ${formHeight + cardBottom}`);
+    // console.log(`pageHeight: ${pageHeight}`);
+    // console.log("===========================");
+    this.updateCardVisibility();
   }
 
   createForm() {
@@ -392,10 +393,32 @@ class UIController {
   }
 
   removeForm() {
+    console.log("removeForm()");
     if (this.currentForm) {
       this.currentForm.remove();
       this.currentForm = null;
       this.wrapper = null;
+    }
+    this.updateCardVisibility();
+  }
+
+  updateCardVisibility() {
+    console.log("updateCardVisibility()");
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      card.classList.remove("card-dimmed");
+    });
+
+    if (this.wrapper) {
+      cards.forEach((card) => {
+        const cardWrapper = card.parentElement;
+        if (cardWrapper === this.wrapper) {
+          card.classList.remove("card-dimmed");
+        } else {
+          card.classList.add("card-dimmed");
+        }
+      });
     }
   }
 }

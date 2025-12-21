@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         case "btn-menu":
           console.log("btn-menu");
           uiController.updateVisibilityMenu();
+          uiController.removeForm();
           break;
         case "nav-home":
           console.log("nav-home");
@@ -37,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("nav-about");
           uiController.closeMenu();
           break;
-        case "tile":
-          console.log("tile");
+        case "card":
+          console.log("card");
           tile = event.target.closest("[data-role]");
           wrapper = tile.parentElement;
           uiController.renderForm(wrapper);
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (
-        !event.target.closest("[data-role='tile']") &&
+        !event.target.closest("[data-role='card']") &&
         !event.target.closest(".form-data")
       ) {
         uiController.removeForm();

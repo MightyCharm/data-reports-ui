@@ -162,14 +162,14 @@ body {
   background-color: rgb(216, 216, 216);
 }
 
-.container-tiles {
+.container-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   /* border: 2px solid red; */
 }
 
-.header-tiles {
+.header-cards {
   grid-column: 1 / -1;
   /* border: 2px solid blue; */
 }
@@ -178,7 +178,7 @@ body {
   position: relative;
 }
 
-.tile {
+.card {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 0.5rem;
@@ -195,8 +195,14 @@ body {
     box-shadow 0.3s ease;
 }
 
-.tile:hover {
+.card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-dimmed {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  /* border: 2px solid red; */
 }
 
 .form-data {
@@ -312,22 +318,22 @@ body {
 .btn-forward {
 }
 
-.tile-header,
-.tile-description,
-.tile-added-info {
+.card-header,
+.card-description,
+.card-added-info {
   padding: 0rem 1rem;
   width: 100%;
 }
 
-.tile-header {
+.card-header {
   /* border: 1px solid red; */
 }
 
-.tile-description {
+.card-description {
   /* border: 1px solid blue; */
 }
 
-.tile-img {
+.card-img {
   width: 100%;
   height: auto;
   max-height: 200px;
@@ -335,7 +341,7 @@ body {
   /* border-radius: var(--border-radius); */
 }
 
-.tile-added-info {
+.card-added-info {
   /* border: 1px solid blue; */
 }
 
