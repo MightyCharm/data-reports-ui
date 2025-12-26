@@ -4,82 +4,120 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   const mainContainer = document.getElementById("main-container");
-  const uiController = new UIController();
 
+  const navBtn = document.getElementById("nav-button");
+  // const btnSubmit = document.getElementById("btn-submit");
   const navUl = document.getElementById("nav-ul");
-  const navButton = document.getElementById("nav-button");
+  console.log(mainContainer);
 
-  const headerForm = document.getElementById("header-form");
-  let resizeTimer;
-  uiController.renderTiles();
+  const uiController = new UIController();
+  let resizeTimer = null;
+
+  uiController.renderCards();
 
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
-    let tile;
-    let wrapper;
-    // console.log(role);
-
-    if (role) {
-      switch (role) {
-        case "btn-menu":
-          console.log("btn-menu");
-          uiController.updateVisibilityMenu();
-          uiController.removeForm();
-          break;
-        case "nav-home":
-          console.log("nav-home");
-          uiController.closeMenu();
-          break;
-        case "nav-report":
-          console.log("nav-report");
-          uiController.closeMenu();
-          break;
-        case "nav-about":
-          console.log("nav-about");
-          uiController.closeMenu();
-          break;
-        case "card":
-          console.log("card");
-          tile = event.target.closest("[data-role]");
-          wrapper = tile.parentElement;
-          uiController.renderForm(wrapper);
-          break;
-        case "btn-close-form":
-          console.log("btn-close-form");
-          uiController.removeForm();
-          break;
-        default:
-          console.log("something went wrong. Click event");
-          break;
-      }
-    } else {
-      // check for closing the nav menu in header
-      if (!navUl.contains(event.target) && !navButton.contains(event.target)) {
+    let card;
+    switch (role) {
+      case "btn-menu":
+        console.log("btn-menu");
+        uiController.updateVisibilityMenu();
+        uiController.setState({
+          activeCard: null,
+          prevCard: null,
+          formOpen: false,
+        });
+        uiController.removeForm();
+        uiController.updateCardVisibility();
+        break;
+      case "nav-home":
+      case "nav-report":
+      case "nav-about":
         uiController.closeMenu();
-      }
+        break;
+      case "card":
+        console.log("card");
+        uiController.closeMenu();
+        card = event.target.closest("[data-role]");
+        console.log(card);
+        if (uiController.state.activeCard) {
+          // console.log("there is an active card");
+          if (card === uiController.state.activeCard) {
+            // console.log("same card was clicked again");
+            uiController.setState({
+              activeCard: null,
+              prevCard: null,
+              formOpen: false,
+            });
+          } else {
+            // console.log("a different card was clicked");
+            uiController.setState({
+              prevCard: uiController.state.activeCard,
+              activeCard: card,
+              formOpen: true,
+            });
+          }
+        } else {
+          // console.log("there is no active card");
+          uiController.setState({ activeCard: card, formOpen: true });
+        }
+        if (uiController.currentForm) {
+          uiController.removeForm();
+        }
+        uiController.renderForm();
+        uiController.updateCardVisibility();
+        break;
+      default:
+        console.log("default case");
+        break;
+    }
 
-      if (
-        !event.target.closest("[data-role='card']") &&
-        !event.target.closest(".form-data")
-      ) {
+    if (
+      !navUl.contains(event.target) &&
+      !navBtn.contains(event.target) &&
+      !event.target.closest("[data-role='card']") &&
+      !event.target.closest(".form-data") &&
+      !event.target.closest("#btn-submit")
+    ) {
+      console.log(
+        "click was not in navUl/navBtn/card/form/btn-submit -> updateWrapper/removeForm",
+      );
+      uiController.closeMenu();
+      uiController.setState({
+        activeCard: null,
+        prevCard: null,
+        formOpen: false,
+      });
+      if (uiController.currentForm) {
         uiController.removeForm();
       }
+      uiController.updateCardVisibility();
     }
   });
 
-  headerForm.addEventListener("submit", (event) => {
+  mainContainer.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    uiController.closeMenu();
+    uiController.setState({
+      activeCard: null,
+      prevCard: null,
+      formOpen: false,
+    });
+    uiController.removeForm();
+    uiController.updateCardVisibility();
     console.log("submit");
   });
 
   window.addEventListener("resize", () => {
-    console.log("Hello");
+    // const card = event.target.closest("[data-role]");
+    // console.log(card);
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
+      // new logic needed
       if (uiController.currentForm) {
-        const wrapper = uiController.wrapper;
         uiController.removeForm();
-        uiController.renderForm(wrapper);
+        uiController.renderForm();
       }
     }, 100);
   });

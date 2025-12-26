@@ -3,13 +3,26 @@ import chart2 from "./images/chart2.jpg";
 
 class UIController {
   constructor() {
+    this.containerCards = document.getElementById("container-cards");
     this.navMenu = document.getElementById("nav-ul");
-    this.containerTiles = document.getElementById("container-cards");
-    this.wrapper;
-    this.currentForm;
+
+    this.currentForm = null;
+    this.state = {
+      activeCard: null,
+      prevCard: null,
+      formOpen: false,
+    };
   }
 
-  renderTiles() {
+  updateVisibilityMenu() {
+    this.navMenu.classList.toggle("hidden");
+  }
+
+  closeMenu() {
+    this.navMenu.classList.add("hidden");
+  }
+
+  renderCards() {
     const seedData = [
       {
         title: "Title 1",
@@ -186,11 +199,11 @@ class UIController {
       },
     ];
     seedData.forEach((data) => {
-      this.displayTiles(data);
+      this.createCard(data);
     });
   }
 
-  displayTiles(data) {
+  createCard(data) {
     // - postion container is created as a reference point for the form that will be created if a tile is clicked
     // - setting position relative on tile directly breaks the flexbox layout, so this wrapper is set to relative
     // - the form that will be created later if tile is clicked uses this as a reference for postioning and is set
@@ -223,66 +236,36 @@ class UIController {
 
     positionContainer.appendChild(article);
 
-    this.containerTiles.appendChild(positionContainer);
+    this.containerCards.appendChild(positionContainer);
   }
 
-  updateVisibilityMenu() {
-    this.navMenu.classList.toggle("hidden");
+  removeForm() {
+    console.log("removeForm()");
+    if (this.currentForm) {
+      this.currentForm.remove();
+      this.currentForm = null;
+    }
   }
 
-  closeMenu() {
-    this.navMenu.classList.add("hidden");
-  }
-
-  renderForm(wrapper) {
+  renderForm() {
     console.log("renderForm()");
-
-    // compares current wrapper with last wrapper, if they are equal, same tile
-    // was clicked again, so close the form and don't open a new one
-    if (this.wrapper === wrapper) {
-      this.removeForm();
-      return;
+    let wrapper;
+    if (this.state.activeCard) {
+      wrapper = this.state.activeCard.parentElement;
     }
 
-    if (this.wrapper) {
-      this.removeForm();
+    if (this.state.formOpen && wrapper) {
+      this.currentForm = this.createForm();
+      const pageHeight = document.body.scrollHeight;
+      wrapper.appendChild(this.currentForm);
+      this.adjustFormPosition(pageHeight);
+      setTimeout(() => {
+        this.currentForm.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }, 0);
     }
-
-    this.wrapper = wrapper;
-    this.currentForm = this.createForm();
-    // check page height before the form is appended, because form appended may
-    // change height of page because it pushes down the content
-    const pageHeight = document.body.scrollHeight;
-    wrapper.appendChild(this.currentForm);
-    this.adjustFormPosition(pageHeight);
-
-    setTimeout(() => {
-      this.currentForm.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-      });
-    }, 0);
-  }
-
-  adjustFormPosition(pageHeight) {
-    console.log("adjustFormPosition");
-    this.wrapper.offsetHeight;
-
-    const formHeight = this.currentForm.offsetHeight;
-    const cardBottom = this.wrapper.offsetTop + this.wrapper.offsetHeight;
-    // pageHeight
-    if (formHeight + cardBottom > pageHeight) {
-      console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
-      this.currentForm.classList.add("on-top");
-    } else {
-      this.currentForm.classList.remove("on-top");
-    }
-    // console.log("===========================");
-    // console.log(`formHeight: ${formHeight} cardBottom: ${cardBottom}`);
-    // console.log(`height form: ${formHeight + cardBottom}`);
-    // console.log(`pageHeight: ${pageHeight}`);
-    // console.log("===========================");
-    this.updateCardVisibility();
   }
 
   createForm() {
@@ -392,30 +375,68 @@ class UIController {
     return divForm;
   }
 
-  removeForm() {
-    console.log("removeForm()");
-    if (this.currentForm) {
-      this.currentForm.remove();
-      this.currentForm = null;
-      this.wrapper = null;
+  adjustFormPosition(pageHeight) {
+    console.log("adjustFormPosition");
+    const wrapper = this.state.activeCard.parentElement;
+    wrapper.offsetHeight;
+    const formHeight = this.currentForm.offsetHeight;
+    const cardBottom = wrapper.offsetTop + wrapper.offsetHeight;
+    // pageHeight
+    if (formHeight + cardBottom > pageHeight) {
+      console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
+      this.currentForm.classList.add("on-top");
+    } else {
+      this.currentForm.classList.remove("on-top");
     }
-    this.updateCardVisibility();
+  }
+
+  adjustFormPosition2(pageHeight) {
+    console.log("adjustFormPosition");
+    this.wrapper.offsetHeight;
+    const formHeight = this.currentForm.offsetHeight;
+    const cardBottom = this.wrapper.offsetTop + this.wrapper.offsetHeight;
+    // pageHeight
+    if (formHeight + cardBottom > pageHeight) {
+      console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
+      this.currentForm.classList.add("on-top");
+    } else {
+      this.currentForm.classList.remove("on-top");
+    }
+  }
+
+  setState(newState) {
+    console.log("setState(newState)");
+    this.state = { ...this.state, ...newState };
+    console.log(this.state);
   }
 
   updateCardVisibility() {
     console.log("updateCardVisibility()");
     const cards = document.querySelectorAll(".card");
 
-    cards.forEach((card) => {
-      card.classList.remove("card-dimmed");
-    });
-
-    if (this.wrapper) {
+    if (this.state.formOpen) {
       cards.forEach((card) => {
-        const cardWrapper = card.parentElement;
-        if (cardWrapper === this.wrapper) {
+        card.classList.add("card-dimmed");
+      });
+    }
+
+    if (!this.state.formOpen) {
+      cards.forEach((card) => {
+        card.classList.remove("card-dimmed");
+      });
+    }
+
+    if (this.state.activeCard) {
+      cards.forEach((card) => {
+        if ((card = this.state.activeCard)) {
           card.classList.remove("card-dimmed");
-        } else {
+        }
+      });
+    }
+
+    if (this.state.prevCard) {
+      cards.forEach((card) => {
+        if (card === this.state.prevCard) {
           card.classList.add("card-dimmed");
         }
       });
