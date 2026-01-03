@@ -233,6 +233,7 @@ body {
   margin-left: auto;
   padding: 2px;
   cursor: pointer;
+  background-color: hsl(0, 0%, 87%);
 }
 
 .btn-close-form:hover {

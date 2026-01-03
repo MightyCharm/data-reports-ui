@@ -67,6 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
         uiController.renderForm();
         uiController.updateCardVisibility();
         break;
+      case "btn-close-form":
+        console.log("btn-close-form");
+        uiController.closeMenu();
+        uiController.setState({
+          activeCard: null,
+          prevCard: null,
+          formOpen: false,
+        });
+        if (uiController.currentForm) {
+          uiController.removeForm();
+        }
+        uiController.updateCardVisibility();
+        break;
       default:
         console.log("default case");
         break;

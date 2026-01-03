@@ -340,7 +340,7 @@ class UIController {
     spanBtnExcel.textContent = "Download Excel-Document";
     spanBtnPdf.textContent = "Download PDF-Document";
     spanBtnBack.textContent = "Load Previous Settings";
-    spanBtnForward.textContent = "Load Choosen Settings";
+    spanBtnForward.textContent = "Load Chosen Settings";
 
     btnClose.appendChild(iconClose);
 
@@ -381,20 +381,6 @@ class UIController {
     wrapper.offsetHeight;
     const formHeight = this.currentForm.offsetHeight;
     const cardBottom = wrapper.offsetTop + wrapper.offsetHeight;
-    // pageHeight
-    if (formHeight + cardBottom > pageHeight) {
-      console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
-      this.currentForm.classList.add("on-top");
-    } else {
-      this.currentForm.classList.remove("on-top");
-    }
-  }
-
-  adjustFormPosition2(pageHeight) {
-    console.log("adjustFormPosition");
-    this.wrapper.offsetHeight;
-    const formHeight = this.currentForm.offsetHeight;
-    const cardBottom = this.wrapper.offsetTop + this.wrapper.offsetHeight;
     // pageHeight
     if (formHeight + cardBottom > pageHeight) {
       console.log("ITS BIGGER THAN PAGE HEIGHT NOT ENOUGH SPACE!");
