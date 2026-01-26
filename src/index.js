@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 document.addEventListener("DOMContentLoaded", () => {
   const mainContainer = document.getElementById("main-container");
 
-  const navBtn = document.getElementById("nav-button");
+  const navBtn = document.getElementById("menu-button");
   // const btnSubmit = document.getElementById("btn-submit");
   const navUl = document.getElementById("nav-ul");
   console.log(mainContainer);
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
     let card;
+    console.log("role: ", role);
     switch (role) {
       case "btn-menu":
         console.log("btn-menu");
@@ -34,6 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
       case "nav-report":
       case "nav-about":
         uiController.closeMenu();
+        break;
+      case "btn-registration":
+        console.log("btn-registration was clicked");
+        break;
+      case "btn-help":
+        console.log("btn-help was clicked");
         break;
       case "card":
         console.log("card");

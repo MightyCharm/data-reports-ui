@@ -287,7 +287,7 @@ class UIController {
     const divButtonContainer = document.createElement("div");
     const btnExcel = document.createElement("button");
     const btnPdf = document.createElement("button");
-    const btnBack = document.createElement("button");
+    const btnPrevious = document.createElement("button");
     const btnForward = document.createElement("button");
     const iconExcel = document.createElement("i");
     const iconPdf = document.createElement("i");
@@ -295,7 +295,7 @@ class UIController {
     const iconForward = document.createElement("i");
     const spanBtnExcel = document.createElement("span");
     const spanBtnPdf = document.createElement("span");
-    const spanBtnBack = document.createElement("span");
+    const spanBtnPrevious = document.createElement("span");
     const spanBtnForward = document.createElement("span");
 
     divForm.classList.add("form-data");
@@ -317,16 +317,20 @@ class UIController {
 
     divButtonContainer.classList.add("container-buttons");
     btnExcel.classList.add("btn-excel");
+    btnExcel.dataset.role = "btn-excel"; // <-----------------------------------------
     btnPdf.classList.add("btn-pdf");
-    btnBack.classList.add("btn-back");
+    btnPdf.dataset.role = "btn-pdf"; // <---------------------------------------------
+    btnPrevious.classList.add("btn-previous");
+    btnPrevious.dataset.role = "btn-previous"; // <---------------------------------------------
     btnForward.classList.add("btn-forward");
+    btnForward.dataset.role = "btn-forward"; // <----------------------------------------
     iconExcel.classList.add("fas", "fa-file-excel");
     iconPdf.classList.add("fas", "fa-file-pdf");
     iconBack.classList.add("fas", "fa-undo");
     iconForward.classList.add("fas", "fa-redo");
     spanBtnExcel.classList.add("span-btn");
     spanBtnPdf.classList.add("span-btn");
-    spanBtnBack.classList.add("span-btn");
+    spanBtnPrevious.classList.add("span-btn");
     spanBtnForward.classList.add("span-btn");
 
     // text content for ul-list
@@ -339,8 +343,8 @@ class UIController {
     // text content for buttons
     spanBtnExcel.textContent = "Download Excel-Document";
     spanBtnPdf.textContent = "Download PDF-Document";
-    spanBtnBack.textContent = "Load Previous Settings";
-    spanBtnForward.textContent = "Load Chosen Settings";
+    spanBtnPrevious.textContent = "Previous";
+    spanBtnForward.textContent = "Forward";
 
     btnClose.appendChild(iconClose);
 
@@ -359,13 +363,13 @@ class UIController {
     btnExcel.appendChild(spanBtnExcel);
     btnPdf.appendChild(iconPdf);
     btnPdf.appendChild(spanBtnPdf);
-    btnBack.appendChild(iconBack);
-    btnBack.appendChild(spanBtnBack);
+    btnPrevious.appendChild(iconBack);
+    btnPrevious.appendChild(spanBtnPrevious);
     btnForward.appendChild(iconForward);
     btnForward.appendChild(spanBtnForward);
     divButtonContainer.append(btnExcel);
     divButtonContainer.append(btnPdf);
-    divButtonContainer.append(btnBack);
+    divButtonContainer.append(btnPrevious);
     divButtonContainer.append(btnForward);
 
     divForm.appendChild(btnClose);
@@ -414,7 +418,7 @@ class UIController {
 
     if (this.state.activeCard) {
       cards.forEach((card) => {
-        if ((card = this.state.activeCard)) {
+        if (card === this.state.activeCard) {
           card.classList.remove("card-dimmed");
         }
       });

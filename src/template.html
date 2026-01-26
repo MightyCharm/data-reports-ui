@@ -17,8 +17,23 @@
           <figcaption class="header-caption">Data-Analytics</figcaption>
         </figure>
         <nav class="navbar">
-          <button id="nav-button" class="nav-button" data-role="btn-menu">
-            Menu
+          <button id="menu-button" class="nav-menu-button" data-role="btn-menu">
+            <span class="kebab-icon">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </span>
+            Menü
+          </button>
+          <button
+            id="registration-button"
+            class="nav-registration-button"
+            data-role="btn-registration"
+          >
+            Anmeldung
+          </button>
+          <button id="help-button" class="nav-help-button" data-role="btn-help">
+            Hilfe
           </button>
           <ul id="nav-ul" class="nav-ul hidden">
             <li class="nav-item" data-role="nav-home">
@@ -32,6 +47,7 @@
             </li>
           </ul>
         </nav>
+
         <form id="header-form" class="header-form" method="get" role="search">
           <input
             id="input-search"
