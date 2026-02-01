@@ -17,14 +17,31 @@
           <figcaption class="header-caption">Data-Analytics</figcaption>
         </figure>
         <nav class="navbar">
-          <button id="menu-button" class="nav-menu-button" data-role="btn-menu">
-            <span class="kebab-icon">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </span>
-            Menü
-          </button>
+          <div class="kebab-menu-container">
+            <button
+              id="menu-button"
+              class="nav-menu-button"
+              data-role="btn-menu"
+            >
+              <span class="kebab-icon">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </span>
+              Menü
+            </button>
+            <ul id="nav-ul" class="nav-ul hidden">
+              <li class="nav-item" data-role="nav-home">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item" data-role="nav-report">
+                <a class="nav-link" href="#">Berichte</a>
+              </li>
+              <li class="nav-item" data-role="nav-about">
+                <a class="nav-link" href="#">Über</a>
+              </li>
+            </ul>
+          </div>
           <button
             id="registration-button"
             class="nav-registration-button"
@@ -35,30 +52,24 @@
           <button id="help-button" class="nav-help-button" data-role="btn-help">
             Hilfe
           </button>
-          <ul id="nav-ul" class="nav-ul hidden">
-            <li class="nav-item" data-role="nav-home">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item" data-role="nav-report">
-              <a class="nav-link" href="#">Berichte</a>
-            </li>
-            <li class="nav-item" data-role="nav-about">
-              <a class="nav-link" href="#">Über</a>
-            </li>
-          </ul>
         </nav>
 
         <form id="header-form" class="header-form" method="get" role="search">
-          <input
-            id="input-search"
-            class="form-input"
-            name="q"
-            class="input-search"
-            type="text"
-            data-role="input-search"
-            placeholder="Datenbank durchsuchen..."
-          />
-          <button id="btn-submit" class="btn-submit" type="submit">OK</button>
+          <p class="header-form-title">Datenbank Deutschland</p>
+          <div class="form-input-container">
+            <input
+              id="input-search"
+              class="form-input"
+              name="q"
+              class="input-search"
+              type="text"
+              data-role="input-search"
+              placeholder="Datenbank durchsuchen..."
+            />
+            <button id="btn-submit" class="btn-submit" type="submit">
+              Suchen
+            </button>
+          </div>
         </form>
       </header>
       <main class="main">
