@@ -1,5 +1,10 @@
 import chart1 from "./images/chart1.jpg";
 import chart2 from "./images/chart2.jpg";
+import example1 from "./images/example_1.jpg";
+import example2 from "./images/example_2.jpg";
+import example3 from "./images/example_3.jpg";
+import example4 from "./images/example_4.jpg";
+import example5 from "./images/example_5.jpg";
 
 class UIController {
   constructor() {
@@ -27,8 +32,8 @@ class UIController {
       {
         title: "Title 1",
         description: " Lorem ipsum, Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example1,
+        imgAlt: "data chart example 1",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi necessitatibus reiciendis quod?",
       },
@@ -36,8 +41,8 @@ class UIController {
         title: "Title 2",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example2,
+        imgAlt: "data chart example 2",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -45,8 +50,8 @@ class UIController {
         title: "Title 3",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example3,
+        imgAlt: "data chart example 3",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -54,8 +59,8 @@ class UIController {
         title: "Title 4",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example4,
+        imgAlt: "data chart example 4",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -63,24 +68,24 @@ class UIController {
         title: "Title 5",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example5,
+        imgAlt: "data chart example 5",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
       {
         title: "Title 6",
         description: " Lorem ipsum,provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example1,
+        imgAlt: "data chart example 1",
         addedInfo: "Ipsam deserunt alias, necessitatibus reiciendis quod?",
       },
       {
         title: "Title 7",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example2,
+        imgAlt: "data chart example 2",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -88,8 +93,8 @@ class UIController {
         title: "Title 8",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example3,
+        imgAlt: "data chart example 3",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -97,8 +102,8 @@ class UIController {
         title: "Title 9",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example4,
+        imgAlt: "data chart example 4",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -106,8 +111,8 @@ class UIController {
         title: "Title 10",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example5,
+        imgAlt: "data chart example 5",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -115,8 +120,8 @@ class UIController {
         title: "Title 11",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example1,
+        imgAlt: "data chart example 1",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -124,8 +129,8 @@ class UIController {
         title: "Title 12",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example2,
+        imgAlt: "data chart example 2",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -133,8 +138,8 @@ class UIController {
         title: "Title 13",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example3,
+        imgAlt: "data chart example 3",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -142,8 +147,8 @@ class UIController {
         title: "Title 14",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example4,
+        imgAlt: "data chart example 4",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -151,8 +156,8 @@ class UIController {
         title: "Title 15",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example5,
+        imgAlt: "data chart example 5",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -160,24 +165,24 @@ class UIController {
         title: "Title 16",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example1,
+        imgAlt: "data chart example 1",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
       {
         title: "Title 17",
         description: " Lorem ipsum, dolor sit , provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example2,
+        imgAlt: "data chart example 2",
         addedInfo: "Ipsam deserunt alias, nihiitatibus reiciendis quod?",
       },
       {
         title: "Title 18",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example3,
+        imgAlt: "data chart example 3",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
@@ -185,16 +190,16 @@ class UIController {
         title: "Title 19",
         description:
           " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident quaerat?",
-        imgSrc: chart1,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example4,
+        imgAlt: "data chart example 4",
         addedInfo:
           "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?",
       },
       {
         title: "Title 20",
         description: " Lorem provident quaerat?",
-        imgSrc: chart2,
-        imgAlt: "fancy chart of some data",
+        imgSrc: example5,
+        imgAlt: "data chart example 5",
         addedInfo: "Ipsam necessitatibus reiciendis quod?",
       },
     ];
@@ -212,6 +217,15 @@ class UIController {
     const article = document.createElement("article");
     const header3 = document.createElement("h3");
     const pDescription = document.createElement("p");
+
+    const select = document.createElement("select");
+    const option_1 = document.createElement("option");
+    const option_2 = document.createElement("option");
+    const option_3 = document.createElement("option");
+    const option_4 = document.createElement("option");
+    const option_5 = document.createElement("option");
+    const option_6 = document.createElement("option");
+
     const img = document.createElement("img");
     const pAddInfo = document.createElement("p");
 
@@ -222,21 +236,76 @@ class UIController {
     header3.textContent = data.title;
     pDescription.classList.add("card-description");
     pDescription.textContent = data.description;
+
+    select.classList.add("select_1");
+    select.setAttribute("data-role", "select");
+    select.name = "select_1";
+    option_1.value = "";
+    option_2.value = "chart_a";
+    option_3.value = "chart_b";
+    option_4.value = "chart_c";
+    option_5.value = "chart_d";
+    option_6.value = "chart_e";
+    option_1.textContent = "Produkt";
+    option_2.textContent = "Chart A";
+    option_3.textContent = "Chart B";
+    option_4.textContent = "Chart C";
+    option_5.textContent = "Chart D";
+    option_6.textContent = "Chart E";
+    option_1.selected = true;
+    option_1.disabled = true;
+
     img.classList.add("card-img");
     img.src = data.imgSrc;
-    img.alt = "some fancy data charts";
+    img.alt = data.imgAlt;
     pAddInfo.classList.add("card-added-info");
     pAddInfo.textContent =
       "Ipsam deserunt alias, nihil vel excepturi voluptatem expedita necessitatibus reiciendis quod?";
 
+    select.appendChild(option_1);
+    select.appendChild(option_2);
+    select.appendChild(option_3);
+    select.appendChild(option_4);
+    select.appendChild(option_5);
+    select.appendChild(option_6);
     article.appendChild(header3);
+
     article.appendChild(pDescription);
+    article.appendChild(select);
     article.appendChild(img);
     article.appendChild(pAddInfo);
 
     positionContainer.appendChild(article);
 
     this.containerCards.appendChild(positionContainer);
+  }
+
+  updateChart(value, img) {
+    console.log("updateChart()");
+    switch (value) {
+      case "chart_a":
+        img.src = example1;
+        img.alt = "data chart example 1";
+        break;
+      case "chart_b":
+        img.src = example2;
+        img.alt = "data chart example 2";
+        break;
+      case "chart_c":
+        img.src = example3;
+        img.alt = "data chart example 3";
+        break;
+      case "chart_d":
+        img.src = example4;
+        img.alt = "data chart example 4";
+        break;
+      case "chart_e":
+        img.src = example5;
+        img.alt = "data chart example 5";
+        break;
+      default:
+        console.log("default case updateChart()");
+    }
   }
 
   removeForm() {
@@ -317,13 +386,12 @@ class UIController {
 
     divButtonContainer.classList.add("container-buttons");
     btnExcel.classList.add("btn-excel");
-    btnExcel.dataset.role = "btn-excel"; // <-----------------------------------------
-    btnPdf.classList.add("btn-pdf");
-    btnPdf.dataset.role = "btn-pdf"; // <---------------------------------------------
+    btnExcel.dataset.role = "btn-excel";
+    btnPdf.dataset.role = "btn-pdf";
     btnPrevious.classList.add("btn-previous");
-    btnPrevious.dataset.role = "btn-previous"; // <---------------------------------------------
+    btnPrevious.dataset.role = "btn-previous";
     btnForward.classList.add("btn-forward");
-    btnForward.dataset.role = "btn-forward"; // <----------------------------------------
+    btnForward.dataset.role = "btn-forward";
     iconExcel.classList.add("fas", "fa-file-excel");
     iconPdf.classList.add("fas", "fa-file-pdf");
     iconBack.classList.add("fas", "fa-undo");

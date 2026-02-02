@@ -115,6 +115,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  mainContainer.addEventListener("change", (event) => {
+    const role = event.target.dataset.role;
+    console.log("change event listener: ", role);
+    let card = undefined;
+    let img = undefined;
+    switch (role) {
+      case "select":
+        card = event.target.closest(".card");
+        img = card.querySelector("img");
+        console.log(card);
+        console.log(img);
+        uiController.updateChart(event.target.value, img);
+        break;
+    }
+  });
+
   mainContainer.addEventListener("submit", (event) => {
     event.preventDefault();
 

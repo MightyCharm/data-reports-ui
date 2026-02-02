@@ -234,7 +234,7 @@ body {
   padding: 0.3rem 0.8rem;
   border: none;
   cursor: pointer;
-  color: black;
+
   font-size: 1rem;
   /* background-color: var(--btn-bg-color); */
   transition: background-color 0.3s ease;
@@ -255,7 +255,7 @@ body {
 .container-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1rem;
+  gap: 0.5rem;
   /* border: 2px solid red; */
 }
 
@@ -275,11 +275,11 @@ body {
   height: 100%;
 
   cursor: pointer;
-  padding: 1rem 0rem;
-  text-align: center;
+  padding: 1rem;
+  text-align: left;
   background-color: white;
   /* border-radius: var(--border-radius); */
-  border-radius: 4px;
+  /* border-radius: 0px; */
 
   transition:
     transform 0.3s ease,
@@ -294,6 +294,43 @@ body {
   opacity: 0.5;
   transition: opacity 0.3s ease;
   /* border: 2px solid red; */
+}
+
+.card-header,
+.card-description,
+.card-added-info {
+  /* padding: 0rem 1rem;
+  width: 100%; */
+}
+
+.card-header {
+  font-weight: normal;
+}
+
+.card-description {
+  /* border: 1px solid blue; */
+}
+
+.select_1 {
+  justify-self: start;
+  padding-right: 1rem;
+}
+
+.select_1:hover {
+  cursor: pointer;
+}
+
+.card-img {
+  width: 100%;
+  /* height: auto; */
+  /* max-height: 200px; */
+  height: 200px;
+  object-fit: cover;
+  /* border-radius: var(--border-radius); */
+}
+
+.card-added-info {
+  /* border: 1px solid blue; */
 }
 
 .form-data {
@@ -311,6 +348,8 @@ body {
 
   border-radius: var(--border-radius);
   background-color: hsl(0, 0%, 100%);
+
+  border: 4px solid red;
 }
 
 /* if form-data doesn't have enough space to be placed under tile */
@@ -420,33 +459,6 @@ body {
 }
 
 /* ===================================================================== */
-
-.card-header,
-.card-description,
-.card-added-info {
-  padding: 0rem 1rem;
-  width: 100%;
-}
-
-.card-header {
-  /* border: 1px solid red; */
-}
-
-.card-description {
-  /* border: 1px solid blue; */
-}
-
-.card-img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  /* border-radius: var(--border-radius); */
-}
-
-.card-added-info {
-  /* border: 1px solid blue; */
-}
 
 .footer {
   grid-area: footer;
