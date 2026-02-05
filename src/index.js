@@ -1,5 +1,6 @@
 import "./styles.css";
 import { UIController } from "./dom";
+import { data } from "./data.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navUl = document.getElementById("nav-ul");
   console.log(mainContainer);
 
-  const uiController = new UIController();
+  const uiController = new UIController(data);
   let resizeTimer = null;
 
   uiController.renderCards();
@@ -124,8 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
       case "select":
         card = event.target.closest(".card");
         img = card.querySelector("img");
-        console.log(card);
-        console.log(img);
         uiController.updateChart(event.target.value, img);
         break;
     }

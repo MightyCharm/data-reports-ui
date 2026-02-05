@@ -349,7 +349,7 @@ body {
   border-radius: var(--border-radius);
   background-color: hsl(0, 0%, 100%);
 
-  border: 4px solid red;
+  /* border: 4px solid red; */
 }
 
 /* if form-data doesn't have enough space to be placed under tile */
