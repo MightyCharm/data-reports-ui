@@ -1,6 +1,8 @@
 import "./styles.css";
-import { UIController } from "./dom";
+import "./help.css";
+import { UIController } from "./uiController.js";
 import { data } from "./data.js";
+import { createHelpModule } from "./help.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       case "btn-help":
         console.log("btn-help was clicked");
+        uiController.clearContent();
+        createHelpModule();
         break;
       case "card":
         console.log("card");

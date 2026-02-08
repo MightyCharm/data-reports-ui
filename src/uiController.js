@@ -318,6 +318,10 @@ class UIController {
       });
     }
   }
+
+  clearContent() {
+    console.log("clear content");
+  }
 }
 
 export { UIController };

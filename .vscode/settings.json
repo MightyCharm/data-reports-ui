@@ -5,6 +5,8 @@
     "readme",
     "layout",
     "ui",
-    "core"
+    "core",
+    "data",
+    "data"
   ]
 }
