@@ -43,9 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("btn-registration was clicked");
         break;
       case "btn-help":
-        console.log("btn-help was clicked");
-        uiController.clearContent();
+        //=======================================================================
+        uiController.clearContent(role);
         createHelpModule();
+        //=======================================================================
         break;
       case "card":
         console.log("card");

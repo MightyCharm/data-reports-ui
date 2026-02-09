@@ -318,9 +318,12 @@ class UIController {
       });
     }
   }
-
-  clearContent() {
+  // new method this commit
+  clearContent(role) {
+    const className = `module-${role.replace("btn-", "")}`;
     console.log("clear content");
+    this.containerCards.innerHTML = "";
+    this.containerCards.classList = className;
   }
 }
 
