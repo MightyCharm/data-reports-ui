@@ -6,9 +6,9 @@
 
 ## Goals:
 
-- improve layout and overall design
+- implement modules dynamically loaded via JavaScript
+- improve accessibility
 - refactor code
-- ...
 
 ## images used:
 
