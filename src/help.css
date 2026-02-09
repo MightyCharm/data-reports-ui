@@ -1,1 +1,41 @@
 /* CSS file for help module */
+.module-help {
+  display: grid;
+  gap: 1rem;
+}
+
+.section-getting-started,
+.section-faq,
+.section-data-info,
+.section-contact,
+.section-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  background-color: hsl(0, 0%, 83%);
+}
+
+.section-help-header {
+  /* color: red; */
+}
+
+.section-help-text {
+  /* color: green; */
+}
+
+.section-getting-started {
+}
+
+.section-faq {
+}
+
+.section-data-info {
+}
+
+.section-contact {
+}
+
+.section-feedback {
+}

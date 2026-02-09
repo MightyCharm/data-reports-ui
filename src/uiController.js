@@ -1,7 +1,7 @@
 class UIController {
   constructor(data) {
     this.data = data;
-    this.containerCards = document.getElementById("container-cards");
+    this.containerCards = document.getElementById("container-dynamic-content");
     this.navMenu = document.getElementById("nav-ul");
 
     this.currentForm = null;

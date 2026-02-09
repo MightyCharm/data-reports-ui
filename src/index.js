@@ -2,16 +2,18 @@ import "./styles.css";
 import "./help.css";
 import { UIController } from "./uiController.js";
 import { data } from "./data.js";
-import { createHelpModule } from "./help.js";
+import { createModuleHelp } from "./help.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   const mainContainer = document.getElementById("main-container");
+  const containerDynamicContent = document.getElementById(
+    "container-dynamic-content",
+  );
 
   const navBtn = document.getElementById("menu-button");
   // const btnSubmit = document.getElementById("btn-submit");
   const navUl = document.getElementById("nav-ul");
-  console.log(mainContainer);
 
   const uiController = new UIController(data);
   let resizeTimer = null;
@@ -43,10 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("btn-registration was clicked");
         break;
       case "btn-help":
-        //=======================================================================
         uiController.clearContent(role);
-        createHelpModule();
-        //=======================================================================
+        createModuleHelp(containerDynamicContent);
         break;
       case "card":
         console.log("card");
