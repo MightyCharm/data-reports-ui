@@ -1,8 +1,6 @@
 function createModuleHome(container, data) {
-  console.log("createModuleHome()");
-  // <!-- <h2 class="header-cards">Data Showcase</h2> -->
+  //console.log("createModuleHome()");
   container.append(createHeader());
-  //   renderCards(container, data);
   data.forEach((data) => {
     container.appendChild(createCard(data));
   });
@@ -88,7 +86,7 @@ function createCard(data) {
 }
 
 function updateChart(value, data, img) {
-  console.log("updateChart()");
+  //console.log("updateChart()");
   switch (value) {
     case "chart_a":
       img.src = data[0].imgSrc;

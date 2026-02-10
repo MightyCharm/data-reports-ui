@@ -8,6 +8,7 @@
     "core",
     "data",
     "uiController",
-    "help"
+    "help",
+    "home"
   ]
 }

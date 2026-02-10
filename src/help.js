@@ -7,7 +7,7 @@ function createModuleHelp(container) {
 }
 
 function createSectionGettingStarted() {
-  console.log("function createSectionGettingStarted()");
+  //console.log("function createSectionGettingStarted()");
   const section = document.createElement("section");
   const h3 = document.createElement("h3");
   const para = document.createElement("p");
@@ -26,7 +26,7 @@ function createSectionGettingStarted() {
 }
 
 function createSectionFAQ() {
-  console.log("function createSectionFAQ()");
+  //console.log("function createSectionFAQ()");
   const section = document.createElement("section");
   const h3 = document.createElement("h3");
   const para = document.createElement("p");
@@ -44,7 +44,7 @@ function createSectionFAQ() {
 }
 
 function createSectionDataInfo() {
-  console.log("function createSectionDataInfo()");
+  //console.log("function createSectionDataInfo()");
   const section = document.createElement("section");
   const h3 = document.createElement("h3");
   const para = document.createElement("p");
@@ -62,7 +62,7 @@ function createSectionDataInfo() {
 }
 
 function createSectionContact() {
-  console.log("function createSectionContact()");
+  //console.log("function createSectionContact()");
   const section = document.createElement("section");
   const h3 = document.createElement("h3");
   const para = document.createElement("p");
@@ -80,7 +80,6 @@ function createSectionContact() {
 }
 
 function createSectionFeedback() {
-  console.log("function createSectionFeedback()");
   const section = document.createElement("section");
   const h3 = document.createElement("h3");
   const para = document.createElement("p");

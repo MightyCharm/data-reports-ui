@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "container-dynamic-content",
   );
 
-  const navBtn = document.getElementById("menu-button");
+  const navBtn = document.getElementById("btn-menu");
   // const btnSubmit = document.getElementById("btn-submit");
   const navUl = document.getElementById("nav-ul");
 
@@ -27,11 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
     let card;
-    console.log("role: ", role);
+    let button;
+    // console.log("role: ", role);
     switch (role) {
       case "btn-home":
         console.log("btn-home");
         uiController.clearContent(role);
+        uiController.closeMenu();
+        uiController.setActiveButton(event.target);
         createModuleHome(containerDynamicContent, data);
         break;
       case "btn-menu":
@@ -42,38 +45,42 @@ document.addEventListener("DOMContentLoaded", () => {
           prevCard: null,
           formOpen: false,
         });
+        // could be button or kebab clicked, so we search for closest button using role
+        button = event.target.closest("[data-role]");
+        uiController.setActiveButton(button);
         uiController.removeForm();
         uiController.updateCardVisibility();
         break;
-      // cases for the kebab menu
       case "kebab-home":
       case "kebab-report":
       case "kebab-about":
         uiController.closeMenu();
         break;
       case "btn-registration":
-        console.log("btn-registration was clicked");
+        console.log("btn-registration");
+        uiController.closeMenu();
+        uiController.setActiveButton(event.target);
         break;
       case "btn-help":
+        console.log("btn-help");
         uiController.clearContent(role);
         createModuleHelp(containerDynamicContent);
+        uiController.closeMenu();
+        uiController.setActiveButton(event.target);
         break;
       case "card":
         console.log("card");
         uiController.closeMenu();
         card = event.target.closest("[data-role]");
-        console.log(card);
+        //console.log(card);
         if (uiController.state.activeCard) {
-          // console.log("there is an active card");
           if (card === uiController.state.activeCard) {
-            // console.log("same card was clicked again");
             uiController.setState({
               activeCard: null,
               prevCard: null,
               formOpen: false,
             });
           } else {
-            // console.log("a different card was clicked");
             uiController.setState({
               prevCard: uiController.state.activeCard,
               activeCard: card,
@@ -81,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           }
         } else {
-          // console.log("there is no active card");
           uiController.setState({ activeCard: card, formOpen: true });
         }
         if (uiController.currentForm) {
@@ -114,12 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
       !event.target.closest("[data-role='card']") &&
       !event.target.closest(".form-data") &&
       !event.target.closest("#btn-home") &&
+      !event.target.closest("#btn-registration") &&
       !event.target.closest("#btn-help") &&
       !event.target.closest("#btn-submit")
     ) {
-      console.log(
-        "click was not in navUl/navBtn/card/form/btn-home/btn-help/btn-submit -> updateWrapper/removeForm",
-      );
+      //console.log("click was not in navUl/navBtn/card/form/btn-home/btn-help/btn-submit -> updateWrapper/removeForm");
       uiController.closeMenu();
       uiController.setState({
         activeCard: null,
@@ -150,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   mainContainer.addEventListener("submit", (event) => {
+    console.log("submit event listener");
     event.preventDefault();
 
     uiController.closeMenu();
@@ -160,12 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     uiController.removeForm();
     uiController.updateCardVisibility();
-    console.log("submit");
   });
 
   window.addEventListener("resize", () => {
-    // const card = event.target.closest("[data-role]");
-    // console.log(card);
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       // new logic needed
