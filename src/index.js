@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let card;
     console.log("role: ", role);
     switch (role) {
+      case "btn-home":
+        console.log("btn-home");
+        uiController.clearContent(role);
+        break;
       case "btn-menu":
         console.log("btn-menu");
         uiController.updateVisibilityMenu();
@@ -36,9 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
         uiController.removeForm();
         uiController.updateCardVisibility();
         break;
-      case "nav-home":
-      case "nav-report":
-      case "nav-about":
+      // cases for the kebab menu
+      case "kebab-home":
+      case "kebab-report":
+      case "kebab-about":
         uiController.closeMenu();
         break;
       case "btn-registration":
@@ -103,10 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
       !navBtn.contains(event.target) &&
       !event.target.closest("[data-role='card']") &&
       !event.target.closest(".form-data") &&
+      !event.target.closest("#btn-home") &&
+      !event.target.closest("#btn-help") &&
       !event.target.closest("#btn-submit")
     ) {
       console.log(
-        "click was not in navUl/navBtn/card/form/btn-submit -> updateWrapper/removeForm",
+        "click was not in navUl/navBtn/card/form/btn-home/btn-help/btn-submit -> updateWrapper/removeForm",
       );
       uiController.closeMenu();
       uiController.setState({

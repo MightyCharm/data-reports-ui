@@ -17,6 +17,9 @@
           <figcaption class="header-caption">Data-Analytics</figcaption>
         </figure>
         <nav class="navbar">
+          <button id="btn-home" class="nav-home-button" data-role="btn-home">
+            Home
+          </button>
           <div class="kebab-menu-container">
             <button
               id="menu-button"
@@ -31,13 +34,13 @@
               Menü
             </button>
             <ul id="nav-ul" class="nav-ul hidden">
-              <li class="nav-item" data-role="nav-home">
+              <li class="nav-item" data-role="kebab-home">
                 <a class="nav-link" href="#">Home</a>
               </li>
-              <li class="nav-item" data-role="nav-report">
+              <li class="nav-item" data-role="kebab-report">
                 <a class="nav-link" href="#">Berichte</a>
               </li>
-              <li class="nav-item" data-role="nav-about">
+              <li class="nav-item" data-role="kebab-about">
                 <a class="nav-link" href="#">Über</a>
               </li>
             </ul>
@@ -49,7 +52,7 @@
           >
             Anmeldung
           </button>
-          <button id="help-button" class="nav-help-button" data-role="btn-help">
+          <button id="btn-help" class="nav-help-button" data-role="btn-help">
             Hilfe
           </button>
         </nav>
@@ -73,7 +76,7 @@
         </form>
       </header>
       <main class="main">
-        <section id="container-dynamic-content" class="container-cards">
+        <section id="container-dynamic-content" class="module-home">
           <h2 class="header-cards">Data Showcase</h2>
         </section>
       </main>
