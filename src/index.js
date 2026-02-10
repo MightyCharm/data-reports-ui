@@ -1,7 +1,10 @@
 import "./styles.css";
+import "./home.css";
 import "./help.css";
+
 import { UIController } from "./uiController.js";
 import { data } from "./data.js";
+import { createModuleHome, updateChart } from "./home.js";
 import { createModuleHelp } from "./help.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -18,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const uiController = new UIController(data);
   let resizeTimer = null;
 
-  uiController.renderCards();
+  createModuleHome(containerDynamicContent, data);
+  //uiController.renderCards();
 
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
@@ -28,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       case "btn-home":
         console.log("btn-home");
         uiController.clearContent(role);
+        createModuleHome(containerDynamicContent, data);
         break;
       case "btn-menu":
         console.log("btn-menu");
@@ -137,7 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
       case "select":
         card = event.target.closest(".card");
         img = card.querySelector("img");
-        uiController.updateChart(event.target.value, img);
+        updateChart(event.target.value, data, img);
+        // uiController.updateChart(event.target.value, img);
+
         break;
     }
   });

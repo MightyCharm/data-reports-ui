@@ -1,0 +1,185 @@
+.module-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0.5rem;
+}
+
+.header-cards-content {
+  grid-column: 1 / -1;
+  /* border: 2px solid blue; */
+  color: hsl(0, 0%, 10%);
+}
+
+.position-container {
+  position: relative;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+  height: 100%;
+
+  cursor: pointer;
+  padding: 1rem;
+  text-align: left;
+  background-color: hsl(0, 0%, 83%);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-dimmed {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.card-header {
+  font-weight: normal;
+}
+
+.card-description {
+  /* border: 1px solid blue; */
+}
+
+.select_1 {
+  justify-self: start;
+  padding-right: 1rem;
+}
+
+.select_1:hover {
+  cursor: pointer;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-added-info {
+  /* border: 1px solid blue; */
+}
+
+.form-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+
+  position: absolute;
+  top: 101%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  cursor: pointer;
+
+  border-radius: var(--border-radius);
+  background-color: hsl(0, 0%, 100%);
+
+  /* border: 4px solid red; */
+}
+
+/* if form-data doesn't have enough space to be placed under tile */
+.on-top {
+  top: 0;
+  transform: translateY(-101%);
+}
+
+.btn-close-form {
+  border: none;
+  margin-left: auto;
+  padding: 4px;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 87%);
+}
+
+.btn-close-form:hover {
+  background-color: hsl(0, 1%, 72%);
+}
+
+.fa-times {
+}
+
+.ul-form {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.list-item {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.list-strong {
+}
+
+.list-span {
+}
+
+.container-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0.5rem;
+}
+
+.btn-excel,
+.btn-pdf,
+.btn-previous,
+.btn-forward {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(120, 6%, 90%);
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.btn-excel,
+.btn-pdf {
+}
+
+.btn-previous,
+.btn-forward {
+  gap: 0.5rem;
+}
+
+.btn-excel:hover,
+.btn-pdf:hover,
+.btn-previous:hover,
+.btn-forward:hover {
+  background-color: hsl(0, 0%, 85%);
+}
+
+.btn-excel {
+}
+
+.fa-file-excel {
+  color: green;
+}
+
+.btn-pdf {
+}
+
+.fa-file-pdf {
+  color: red;
+}
+
+.btn-previous {
+}
+
+.btn-forward {
+}
