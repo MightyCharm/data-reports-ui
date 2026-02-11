@@ -15,14 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const navBtn = document.getElementById("btn-menu");
-  // const btnSubmit = document.getElementById("btn-submit");
   const navUl = document.getElementById("nav-ul");
 
   const uiController = new UIController(data);
   let resizeTimer = null;
 
+  // create home view and select active btn
   createModuleHome(containerDynamicContent, data);
-  //uiController.renderCards();
+  // createModuleHelp(containerDynamicContent);
+  uiController.setActiveButton(document.getElementById("btn-home"));
 
   mainContainer.addEventListener("click", (event) => {
     const role = event.target.closest("[data-role]")?.dataset.role;
