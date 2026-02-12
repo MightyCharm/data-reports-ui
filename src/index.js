@@ -1,10 +1,12 @@
 import "./styles.css";
 import "./home.css";
+import "./contact.css";
 import "./help.css";
 
 import { UIController } from "./uiController.js";
 import { data } from "./data.js";
 import { createModuleHome, updateChart } from "./home.js";
+import { createModuleContact } from "./contact.js";
 import { createModuleHelp } from "./help.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // create home view and select active btn
   createModuleHome(containerDynamicContent, data);
-  // createModuleHelp(containerDynamicContent);
   uiController.setActiveButton(document.getElementById("btn-home"));
 
   mainContainer.addEventListener("click", (event) => {
@@ -52,9 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
         uiController.removeForm();
         uiController.updateCardVisibility();
         break;
-      case "kebab-home":
-      case "kebab-report":
-      case "kebab-about":
+      case "btn-contact":
+        //====================================================
+        console.log("open contact module");
+        uiController.clearContent(role);
+        createModuleContact(containerDynamicContent);
+        uiController.closeMenu();
+        break;
+      case "btn-report":
+      case "btn-about":
         uiController.closeMenu();
         break;
       case "btn-registration":

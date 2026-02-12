@@ -1,0 +1,73 @@
+.module-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  line-height: 1.5;
+}
+
+.section-contact-intro,
+.section-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* section-contact-intro ------------------ */
+.contact-intro-header {
+  font-size: 1.2rem;
+  color: hsl(204, 83%, 35%);
+}
+
+.contact-intro-text {
+}
+
+.contact-intro-link {
+  text-decoration: none;
+  color: hsl(204, 83%, 35%);
+}
+
+/* section-contact-form */
+.section-contact-form {
+}
+
+.section-contact-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: none;
+}
+
+.contact-form-legend {
+  color: hsl(204, 83%, 35%);
+}
+
+.contact-form-ul {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 1rem;
+  list-style-type: none;
+}
+
+.contact-form-li {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-submit-btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(204, 83%, 35%);
+  color: hsl(204, 73%, 20%);
+  background-color: white;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.contact-form-submit-btn:hover {
+  color: white;
+  background-color: hsl(204, 83%, 35%);
+}
